@@ -4,9 +4,9 @@ import { bindActionCreators } from 'redux';
 import ReactGridLayout from 'react-grid-layout';
 import { Icon, Sidebar, Segment, Menu } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import TransitComponent from '@databraid/transit-widget/lib';
-import SlackComponent from '@databraid/slack-widget/lib';
-import GithubComponent from '@databraid/github-widget/lib';
+import TransitComponent from '@databraid/transit-widget/lib/App';
+import SlackComponent from '@databraid/slack-widget/lib/App';
+import GithubComponent from '@databraid/github-widget/lib/App';
 import { TRANSIT_WIDGET_ID, SLACK_WIDGET_ID, GITHUB_WIDGET_ID } from './constants';
 import './App.css';
 import {

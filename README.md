@@ -15,16 +15,7 @@ https://trello.com/b/GlhG504F/dashboard-spa
 # Using the widgets inside the dashboard-spa
 
 ## creating widgets as libraries:
-- modify `src/index.js`  to export the root component, excluding the `provider`, as the default export. Also export the root reducer as a named export labeled `rootReducer`.  By `rootReducer` we mean what goes in `state.widgets[widgetID]`. See the Widget Reducer in Dashboard SPA section below. 
 
-- Also `src/index.js` should export the `api` that it uses inside thunks, as `WIDGETNAME_API`. The code for the widget should also be updated to use this new named object, i.e. instead of using `api`, it should use `WIDGETNAME_API`.
-
-- Root shouldn't be a React Element, but rather a React Component, the dashboard will be responisble for actually rendering it.
-
-```
-export { rootReducer, TRANSIT_API };
-export default Root
-```
 - create folder `libs` in root directory of widget SPA.
 
 - create folder `widget-libs` under the `libs` directory.
@@ -34,6 +25,13 @@ export default Root
 ```
 /libs/widget-libs/lib
 /libs/widget-libs/node_modules
+```
+
+- Add `.eslintignore` in the root folder of your app to add (since we don't want these folders to be linted):
+
+```
+/build/**
+/libs/**
 ```
 
 - run `npm init` with all defaults.
@@ -51,7 +49,7 @@ export default Root
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "NODE_ENV=development babel --presets react-app -D -d lib ../../src/"
+    "build": "NODE_ENV=development babel --presets es2015,react-app -D -d lib ../../src/"
   },
   "author": "",
   "license": "ISC",
@@ -67,6 +65,9 @@ export default Root
   }
 }
 ```
+
+- The build command requires that `babel-preset-es2015` be installed as a dev dependency of the root of your create react app. 
+
 - replace `name` with the the correct name for your SPA widget in the npm org.
 
 - replace `version` with "1.0.0"
@@ -89,9 +90,13 @@ export default Root
 
 * run `npm install --save  @databraid/your-widget-name`
 
-* then you use ` import DefaultExport from  '@databraid/your-widget-name/lib';` to work with the widget default export, which should be the root component (excluding the `provider`) from your widget.
+* then you use `import AppComponent from '@databraid/your-widget-name/lib/App';` to work with the widget App Component which should be the root component (excluding the `provider`) from your widget.
 
-* use `import { rootReducer  }  from '@databraid/your-widget-name/lib` to work with the root reducer exported by your widget.
+* use `import { rootReducer  }  from '@databraid/your-widget-name/lib/reducers` to work with the root reducer exported by your widget. the rootReducer name may vary from widget to widget.
+
+By `rootReducer` we mean what goes in `state.widgets[widgetID]`.
+
+* use `import API from '@databraid/your-widget-name/lib/utils/Api` to work with the API exported by your widget.
 
 
 ## Widget Reducer in Dashboard SPA. 

@@ -13,7 +13,7 @@ import {
   hideAddWidgetModal,
 } from '../../actions';
 
-const ModalAddWidget = props => (
+export const ModalAddWidget = props => (
   <Modal basic size="small" open={props.showAddWidgetModal}>
     <Header icon="new pied piper" content="Choose a widget" />
     <Modal.Content>
@@ -66,7 +66,7 @@ ModalAddWidget.propTypes = {
   hideAddWidgetModal: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => {
+export const mapStateToProps = (state) => {
   const showAddWidgetModal = state.widgets.showAddWidgetModal;
   const ids = state.widgets.ids;
   return { showAddWidgetModal, ids };
