@@ -29,7 +29,7 @@ const initialState = {
   },
 };
 
-const widgets = (state = initialState, action) => {
+export const widgets = (state = initialState, action) => {
   switch (action.type) {
     case ADD_WIDGET:
 
