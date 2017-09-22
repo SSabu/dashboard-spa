@@ -7,13 +7,14 @@ import {
   TRANSIT_WIDGET_ID,
   SLACK_WIDGET_ID,
   GITHUB_WIDGET_ID,
+  SHEETS_WIDGET_ID,
 } from '../../constants';
 import {
   addWidget,
   hideAddWidgetModal,
 } from '../../actions';
 
-export const ModalAddWidget = props => (
+export const AddWidgetModal = props => (
   <Modal basic size="small" open={props.showAddWidgetModal}>
     <Header icon="new pied piper" content="Choose a widget" />
     <Modal.Content>
@@ -28,6 +29,15 @@ export const ModalAddWidget = props => (
         disabled={props.ids.includes(TRANSIT_WIDGET_ID)}
       >
         <Icon name="rocket" size="large" />Transit
+      </Button>
+      <Button
+        basic
+        color="blue"
+        onClick={() => props.addWidget(SHEETS_WIDGET_ID)}
+        inverted
+        disabled={props.ids.includes(SHEETS_WIDGET_ID)}
+      >
+        <Icon name="table" size="large" />Sheets
       </Button>
       <Button
         basic
@@ -48,7 +58,6 @@ export const ModalAddWidget = props => (
         <Icon name="slack" size="large" /> Slack
       </Button>
       <Button
-        basic
         color="red"
         onClick={props.hideAddWidgetModal}
         inverted
@@ -59,7 +68,7 @@ export const ModalAddWidget = props => (
   </Modal>
 );
 
-ModalAddWidget.propTypes = {
+AddWidgetModal.propTypes = {
   showAddWidgetModal: PropTypes.bool.isRequired,
   ids: PropTypes.arrayOf(PropTypes.string).isRequired,
   addWidget: PropTypes.func.isRequired,
@@ -82,4 +91,4 @@ dispatch);
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ModalAddWidget);
+)(AddWidgetModal);

@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddWidgetModal component should render a component with props as specified  1`] = `
+<Modal
+  basic={true}
+  closeOnDimmerClick={true}
+  closeOnDocumentClick={false}
+  dimmer={true}
+  open={true}
+  size="small"
+>
+  <Header
+    content="Choose a widget"
+    icon="new pied piper"
+  />
+  <ModalContent>
+    <p>
+      You may only display one of each widget at this time.
+    </p>
+  </ModalContent>
+  <ModalActions>
+    <Button
+      as="button"
+      basic={true}
+      color="blue"
+      disabled={false}
+      inverted={true}
+      onClick={[Function]}
+    >
+      <Icon
+        as="i"
+        name="rocket"
+        size="large"
+      />
+      transit
+    </Button>
+    <Button
+      as="button"
+      basic={true}
+      color="blue"
+      disabled={false}
+      inverted={true}
+      onClick={[Function]}
+    >
+      <Icon
+        as="i"
+        name="table"
+        size="large"
+      />
+      Sheets
+    </Button>
+    <Button
+      as="button"
+      basic={true}
+      color="blue"
+      disabled={false}
+      inverted={true}
+      onClick={[Function]}
+    >
+      <Icon
+        as="i"
+        name="github"
+        size="large"
+      />
+      github
+    </Button>
+    <Button
+      as="button"
+      basic={true}
+      color="blue"
+      disabled={true}
+      inverted={true}
+      onClick={[Function]}
+    >
+      <Icon
+        as="i"
+        name="slack"
+        size="large"
+      />
+      slack
+    </Button>
+    <Button
+      as="button"
+      basic={true}
+      color="blue"
+      disabled={false}
+      inverted={true}
+      onClick={[Function]}
+    >
+      <Icon
+        as="i"
+        name="table"
+        size="large"
+      />
+      sheets
+    </Button>
+    <Button
+      as="button"
+      basic={true}
+      color="red"
+      inverted={true}
+      onClick={[Function]}
+    >
+      <Icon
+        as="i"
+        name="cancel"
+        size="large"
+      />
+       Cancel
+    </Button>
+  </ModalActions>
+</Modal>
+`;
